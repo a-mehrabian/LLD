@@ -19,7 +19,7 @@ void delay(int ticks) {
 }
 
 void str_print(char *str) {
-    _syscall(SYS_write, (void *)1 /*stdout*/, str, (void *)str_len(str), 0, 0, 0);
+    _syscall(SYS_write, (void *)1 /*stdout*/, (void*)str, (void *)str_len(str), (void*)0, (void*)0, (void*)0);
 }
 
 int str_eq(char *a, char *b) {
@@ -95,7 +95,7 @@ void str_copy(char *dest, char *source) {
 }
 
 void _exit(int code) {
-    return _syscall(SYS_exit, code, 0, 0, 0, 0, 0);
+    _syscall(SYS_exit, (void*)(unsigned long)code, (void*)0, (void*)0, (void*)0, (void*)0, (void*)0);
 }
 
 int errno_value = 0;

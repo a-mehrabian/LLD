@@ -28,7 +28,7 @@ int main() {
     int fd = sys_open("/etc/myos.img", O_RDONLY);
     int buff_size = sizeof(int) * 1024 * 768;
     int *buff = malloc(buff_size);
-    sys_read(fd, buff, buff_size);
+    sys_read(fd, (char*)buff, buff_size);
     sys_close(fd);
 
     int i = 0;

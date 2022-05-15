@@ -8,6 +8,6 @@ LDFLAGS = -lmy -lfb -L$(MYOS_PATH)/lib
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(CC) $(LDFLAGS) $(FLAGS) -o $(TARGET) $(OBJECTS)
+	$(CC) $(FLAGS) -o $(TARGET) $(OBJECTS) $(LDFLAGS)
 
 include ../base.mk

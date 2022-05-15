@@ -256,7 +256,7 @@ bool process_command(char *cmd) {
     } else if (str_eq(cmd, "free")) {
         //free ADDRESS
         unsigned long addr = hex_str_to_ulong(argv[1]);
-        free(addr);
+        free((void*)addr);
 
         print_heap();
     } else if (str_eq(cmd, "store")) {

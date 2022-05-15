@@ -9,6 +9,6 @@ BINDIR = $(PREFIX)/bin
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(CC) $(LDFLAGS) $(FLAGS) -o $(TARGET) $(OBJECTS)
+	$(CC) $(FLAGS) -o $(TARGET) $(OBJECTS) $(LDFLAGS)
 
 include ../base.mk

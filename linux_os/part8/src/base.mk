@@ -1,8 +1,9 @@
 SHELL ?= /bin/sh
 CC ?= gcc
-FLAGS ?= -nostdlib -I../include
-MYOS_PATH ?= /mnt/myos
-DESTDIR ?= /mnt/myos
+FLAGS ?= -g -nostdlib -I../include
+INSTALL_HOME ?= /home/a_mehrabian/dev/OS/LLD/install
+MYOS_PATH ?= $(INSTALL_HOME)
+DESTDIR ?= $(INSTALL_HOME)
 
 PREFIX ?= $(DESTDIR)
 BINDIR ?= $(PREFIX)/sbin
@@ -18,5 +19,12 @@ OBJECTS += ../crt0_s.o
 install:
 	cp $(TARGET) $(BINDIR)/
 
+preInstall:
+	mkdir -p $(INSTALL_HOME)
+	mkdir -p $(INSTALL_HOME)/lib
+	mkdir -p $(INSTALL_HOME)/bin
+	mkdir -p $(INSTALL_HOME)/sbin
+
 clean:
 	rm *.o $(TARGET)
+	#rm -r /home/a_mehrabian/dev/OS/LLD/mnt
